@@ -2,7 +2,6 @@ inoremap jj <ESC>
 let mapleader = ","
 
 
-
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 
@@ -115,7 +114,7 @@ let g:ag_working_path_mode="r"
 " CtrlP settings
 let g:ctrlp_match_window = 'botom,order:ttb'
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 " use silver surfer for search (faster)
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " setup some default ignores
