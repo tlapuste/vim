@@ -1,1 +1,1 @@
-.vimrc
+/Users/tudorl/.vimrc
