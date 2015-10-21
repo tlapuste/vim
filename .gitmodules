@@ -79,4 +79,18 @@
 [submodule "bundle/vim-gtfo"]
 	path = bundle/vim-gtfo
 	url = https://github.com/justinmk/vim-gtfo.git
-
+[submodule "bundle/webapi-vim"]
+	path = bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim.git
+[submodule "bundle/SingleCompile"]
+	path = bundle/SingleCompile
+	url = https://github.com/vim-scripts/SingleCompile.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "bundle/vim-expand-region"]
+	path = bundle/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region.git

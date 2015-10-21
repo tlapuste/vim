@@ -1,0 +1,71 @@
+
+"######## KEY MAPPINGS #########""
+
+let mapleader = ","
+inoremap jj <ESC>
+
+"Movement
+nnoremap j gj
+nnoremap k gk
+" move to beginning/end of line
+nnoremap B ^
+vnoremap B ^
+nnoremap E $
+vnoremap E $
+
+" provide hjkl in Insert mode and Command-line mode via <Alt> modifier
+noremap! <A-h> <Left>
+noremap! <A-j> <Down>
+noremap! <A-k> <Up>
+noremap! <A-l> <Right>
+
+"turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR> 
+
+
+"######## FUNCTIONALITY SETTINGS #########""
+
+" make backspace work properly
+set backspace=indent,eol,start
+
+" Visual
+syntax enable
+set cursorline
+set number
+set showcmd
+set cmdheight=2
+set numberwidth=5
+
+
+" search with /
+set showmatch
+set incsearch
+set hlsearch
+
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set showtabline=2
+set autoindent
+filetype plugin indent on
+
+set laststatus=2
+set ignorecase smartcase
+set shell=bash
+set switchbuf=useopen
+"allow buffer to be hidden if you've modified it
+set hidden
+set mouse=a
+
+
+set wildmenu "visual autocompete for command menu
+set lazyredraw "redraw only when we need to
+set showmatch " highlight matching [{()}]
+
+"code folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+

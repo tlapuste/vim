@@ -92,6 +92,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Tagbar 
 nmap <leader>` :TagbarToggle<CR>
+"support for javascript ctags (check .ctags)
+let g:tagbar_type_javascript = {
+    \ 'ctagstype' : 'JavaScript',
+    \ 'kinds'     : [
+        \ 'o:objects',
+        \ 'f:functions',
+        \ 'a:arrays',
+        \ 's:strings'
+    \ ]
+\ }
 
 " Syntastic 
 " toggle
@@ -151,8 +161,13 @@ nmap <leader>bl :CtrlPLine<cr>
 " Vim jsx
 " Allow JSX in normal JS files"
 let g:jsx_ext_required = 0 
-set rtp+=/.vim/bundle/jsx.vim
+set rtp+=~/.vim/bundle/jsx.vim
 
+"SingleCompile bind
+nmap <leader>[ :SCCompile<cr>
+nmap <leader>] :SCCompileRun<cr>
+nmap <leader>{ :SCChooseCompiler<cr>
+nmap <leader>} :SCViewResult<cr>
 
 "######## FUNCTIONALITY SETTINGS #########""
 
@@ -199,8 +214,8 @@ set shell=bash
 set switchbuf=useopen
 "allow buffer to be hidden if you've modified it
 set hidden
+set mouse=a
 
-let g:netrw_liststyle=3
 
 set wildmenu "visual autocompete for command menu
 set lazyredraw "redraw only when we need to
