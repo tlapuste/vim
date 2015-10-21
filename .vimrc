@@ -4,8 +4,6 @@
 let mapleader = ","
 inoremap jj <ESC>
 
-" replace tabnew
-nmap <leader>T :tabnew<cr>
 " move to next buffer
 nmap <leader>1 :bnext<CR>
 "move to previous buffer
@@ -20,6 +18,7 @@ map <leader>k :E<cr>
 "save session
 "(re-open with 'vi -S')
 nnoremap <leader>s :mksession<CR>
+nnoremap <leader>s! :mksession!<CR>
 
 "fold with space
 nnoremap <space> za
@@ -42,7 +41,29 @@ noremap! <A-l> <Right>
 "turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR> 
 
+"toggle special paste mode
+nnoremap <leader>p :set invpaste paste?<CR>
+set pastetoggle=<leader>p
+set showmode
 
+
+"tab navigation 
+nnoremap <leader>tk :tabnext<CR>
+nnoremap <leader>tj :tabprev<CR>
+nnoremap <leader>tt :tabnew<CR>
+nnoremap <leader>tq :bp <BAR> bd #<CR> tabclose<CR>
+nnoremap <leader>tc :tabclose<CR>
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 "######## PLUGINS SETTINGS #########""
 
@@ -95,7 +116,7 @@ let g:syntastic_cpp_checkers = ['check']
 " Vim-Emmet 
 " remap leader key from <C-Y> (still have to type "," after)
 " Note: same as window-manager
-let g:user_emmet_leader_key='<C-W>'
+let g:user_emmet_leader_key='<C-e>'
 
 " Vim-Airline
 " list buffers across top (vim-airline)
@@ -125,9 +146,12 @@ let g:ctrlp_custom_ignore = {
 nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>bs :CtrlPMRU<cr>
+nmap <leader>bl :CtrlPLine<cr>
+
 " Vim jsx
 " Allow JSX in normal JS files"
 let g:jsx_ext_required = 0 
+set rtp+=/.vim/bundle/jsx.vim
 
 
 "######## FUNCTIONALITY SETTINGS #########""
@@ -161,12 +185,14 @@ set showmatch
 set incsearch
 set hlsearch
 
-set expandtab
 set tabstop=4
-set showtabline=2
-set shiftwidth=4
+set expandtab
 set softtabstop=4
+set shiftwidth=4
+set showtabline=2
 set autoindent
+filetype plugin indent on
+
 set laststatus=2
 set ignorecase smartcase
 set shell=bash
@@ -176,8 +202,6 @@ set hidden
 
 let g:netrw_liststyle=3
 
-filetype plugin indent on
-filetype indent on
 set wildmenu "visual autocompete for command menu
 set lazyredraw "redraw only when we need to
 set showmatch " highlight matching [{()}]
@@ -196,5 +220,7 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+
 
 
