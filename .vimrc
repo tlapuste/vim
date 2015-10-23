@@ -67,20 +67,91 @@ noremap <leader>0 :tablast<cr>
 
 "######## PLUGINS SETTINGS #########""
 
+let g:neocomplete#enable_at_startup = 1
 " Pathogen runtime
 runtime bundle/vim-pathogen/autoload/pathogen.vim 
 execute pathogen#infect()
 
-" Jedi Autocomplete (use tabs when going to a def)
-let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
- 
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#data_directory = '~/.vim/tmp/neocomplete'
+let g:acp_enableAtSartup = 0
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#auto_completion_start_length = 2
+" increase limit for tag cache files
+let g:neocomplete#sources#tags#cache_limit_size = 16777216 " 16MB
+" fuzzy completion breaks dot-repeat more noticeably
+" https://github.com/Shougo/neocomplete.vim/issues/332
+let g:neocomplete#enable_fuzzy_completion = 0
+" always use completions from all buffers
+if !exists('g:neocomplete#same_filetypes')
+    let g:neocomplete#same_filetypes = {}
+endif
+let g:neocomplete#same_filetypes._ = '_'
+
+" enable omni-completion for Ruby and PHP
+call neocomplete#util#set_default_dictionary(
+            \'g:neocomplete#sources#omni#input_patterns', 'ruby',
+            \'[^. *\t]\.\h\w*\|\h\w*::\w*')
+call neocomplete#util#set_default_dictionary(
+            \'g:neocomplete#sources#omni#input_patterns',
+            \'php',
+            \'[^. \t]->\h\w*\|\h\w*::\w*')
+" from neocomplete.txt:
+" ---------------------
+" Plugin key-mappings.
+inoremap <expr> <C-g> neocomplete#undo_completion()
+inoremap <expr> <C-l> neocomplete#complete_common_string()
+" Recommended key-mappings.
+" <CR>: cancel popup and insert newline.
+inoremap <silent> <CR> <C-r>=neocomplete#smart_close_popup()<CR><CR>
+" <TAB>: completion.
+inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr> <C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr> <C-y> neocomplete#close_popup()
+
+
+" Neosnippet
+imap <C-k>     <Plug>("neosnippet_expand_or_jump")
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+
+" Supertab autocomplete
+set omnifunc=syntaxcomplete#Complete
+autocmd Filetype javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd Filetype html set omnifunc=htmcomplete#CompleteTags
+autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
+set completeopt=menu
+let g:SuperTabDefaultCompletionType="context"
+" to do text select via j/k
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+" Jedi Autocomplete (use tabs when going to a def)
+let g:jedi#popup_select_first = 0
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"
+
 
 " NERDTree shortcuts below
 nnoremap <leader>E  :NERDTreeToggle<CR>
@@ -89,6 +160,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Disable NERDTree unicode arrows (when lack of Unicode support)
 "let g:NERDTreeDirArrows=0
+
 
 " Tagbar 
 nmap <leader>` :TagbarToggle<CR>
