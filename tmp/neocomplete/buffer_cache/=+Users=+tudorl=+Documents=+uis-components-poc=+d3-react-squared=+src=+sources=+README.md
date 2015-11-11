@@ -1,0 +1,1 @@
+{'About', 'this', 'folder', 'This', 'will', 'hold', 'your', 'flux', 'datasources', 'include', 'them', 'into', 'components', 'stores', 'like', 'this:', 'javascript', 'react', 'require', 'addons', 'MySource', 'sources', 'MyAction', 'class', 'MyComponent', 'extends', 'React', 'Component', 'constructor', 'props', 'super', 'getRemoteData'}

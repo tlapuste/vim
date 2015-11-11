@@ -1,0 +1,159 @@
+/* FizzBuzz */
+for (var i=1; i<101; i++){
+    switch (i){
+        case (i%3 == 0 && i%5 == 0):
+            console.log("FizzBuzz");
+            break;
+        case (i%3 == 0):
+            console.log("Fizz");
+            break;
+        case (i%3 == 0):
+            console.log("Buzz");
+            break;
+        default:
+            console.log(i);
+    }    
+}
+
+/* Chess Board */
+size = 8;
+var board = "";
+for (var i=0; i<8; i++){
+    for (var j=0; j<8; j++){
+        board + "#";
+    }
+    board + "/n";
+}
+console.log(board);
+
+
+/* Recursion */
+function isEven(n){
+    if (n < 0) return;
+    if (n == 0){
+        return true;
+    }
+    else if (n == 1){
+        return false;
+    }
+    else {
+        isEven(n - 2);
+    }
+}
+
+/* Sum of a range */
+function range(start, end, step){
+    if (arguments[2] == undefined){
+        step = 1;
+    }
+    var array = [];
+    for(var i=start; i < end; i+=step){
+        array.push(i);
+    }
+    return array;
+}
+
+function sum(array){
+    var sum = 0;
+    for (var el in array) {
+        sum += array[el];
+    }
+    return sum;
+}
+
+/* Reversing an array */
+function reverseArray(array){
+    var newArray = [];
+    for (var el in array) {
+        var newArray.unshift(el); 
+    }  
+    return newArray;
+}
+assert(reverseArray([1,2,3]), [3, 2, 1]);
+// same thing but pass by reference !!!
+function reverseArrayInPlace(array){
+    var index = array.length - 1,
+        temp = [];
+    for (var i = 0; i < array.length - 1; i++){
+        temp.map(index);
+        array.shift();
+    } 
+    return array;
+
+}
+
+[1, 2, 3, 4, 5]
+[5, 2, 3, 4, 1]
+[5, 4, 3, 2, 1]
+
+[1, 2, 3, 4]
+[4, 2, 3, 1]
+[4, 3, 2, 1]
+
+/* List */
+var list = {
+    value: x,
+    rest: {
+        value: y;
+        rest: null
+    }
+};
+// assume array of numbers
+function arrayToList(array){
+    
+}
+function listToArray(list, history){
+    if (history === undefined){
+        history = 1;
+    } 
+    
+}
+// creates new list with el at head of list
+function prepend(el, list){
+    var newList = {};
+    newList.value = el;
+    newList.rest = list;
+    return newList;
+}
+// return el at given position in list or undefined (List indexOf)
+// !! index access
+/*
+ * function nth(list, number){
+ *     if (list.value == null){
+ *         return undefined;
+ *     } else if(list.value ==){
+ * 
+ *         return nth(list.rest, number);
+ * 
+ * }}
+ */
+
+function nth(list, number){
+    if (list.rest === null){
+        return undefined;
+    } else if(list.value !== null){
+        
+        else {
+            return nth(list.rest, number);
+        }
+
+    }
+};
+
+/* Deep comparison */
+// return true if same value or objects with same props whose values are also equal
+// TODO: typeof null produces "object"
+function deepEqual(val1, val2){
+    if(val1 === val2)
+        return true;
+    else if(typeof val1 == "object" && typeof val2 == "object"){
+        for (var prop in val1) {
+            if (val2.prop == undefined)
+                return false;
+        }
+        return true;
+    }
+    else return false; 
+}
+
+

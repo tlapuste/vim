@@ -1,0 +1,1 @@
+{'path', 'require', 'webpack', 'lodash', 'baseConfig', 'base', 'config', 'merge', 'entry', 'server', 'client', 'http', 'only', 'components', 'cache', 'true', 'devtool', 'eval', 'plugins', 'HotModuleReplacementPlugin', 'NoErrorsPlugin', 'needed', 'loaders', 'module', 'push', 'test', 'loader', 'react', 'babel', 'include', 'join', '__dirname', 'exports'}

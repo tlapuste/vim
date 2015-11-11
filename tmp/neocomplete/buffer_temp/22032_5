@@ -1,0 +1,54 @@
+require('normalize.css');
+require('styles/App.css');
+
+import React from 'react';
+import Chart from 'd3-react-squared';
+
+let yeomanImage = require('../images/yeoman.png');
+
+
+// main app component rendering phase
+class AppComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <div class='wrapper'>
+        <Chart
+          chartType='pie'
+          data={[{"id":0,"value":38},{"id":1,"value":97},{"id":2,"value":81}]}
+          paddingBottom='100%'
+          params={
+            {
+              colorArray: d3.scale.category20().range(),
+              colorType: 'category',
+              cornerRadius: 20,
+              innerRadius: 100
+            }
+          }
+        />
+        </div>
+
+
+      <Chart
+        chartType='line'
+        data={[{"id":0,"values":[{"x":5,"y":0.18793978379108012},{"x":8,"y":0.40822715568356216},{"x":9,"y":0.2291566904168576}]},{"id":1,"values":[{"x":1,"y":0.3941601528786123},{"x":2,"y":0.6987958976533264},{"x":5,"y":0.31925286212936044}]},{"id":2,"values":[{"x":0,"y":0.4179266206920147},{"x":1,"y":0.3236277864780277},{"x":4,"y":0.049522199435159564},{"x":5,"y":0.8403619488235563},{"x":6,"y":0.47525914502330124}]}]}
+        paddingBottom='100%'
+        params={
+          {
+            aspectRatio: 1,
+            colorArray: d3.scale.category20().range(),
+            interpolate: 'cardinal',
+            strokeWidth: 10,
+          }
+        }
+      />
+      </div>
+
+    );
+  }
+}
+
+AppComponent.defaultProps = {
+};
+
+export default AppComponent;
