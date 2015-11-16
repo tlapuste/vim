@@ -97,6 +97,11 @@ call neocomplete#util#set_default_dictionary(
             \'g:neocomplete#sources#omni#input_patterns',
             \'php',
             \'[^. \t]->\h\w*\|\h\w*::\w*')
+" enable tern
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.javascript = '\h\w*\|[^. \t]\.\w*'
 " from neocomplete.txt:
 " ---------------------
 " Plugin key-mappings.
@@ -244,7 +249,6 @@ nmap <leader>} :SCViewResult<cr>
 
 "tern for vim
 let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_hold'
 
 
 "######## FUNCTIONALITY SETTINGS #########""
@@ -265,7 +269,8 @@ set numberwidth=5
 " Zenburn
 set t_Co=256
 set background=dark
-colorscheme zenburn
+colorscheme tomorrow-night
+" colorscheme zenburn
 
 "Solarized
 "let g:solarized_termcolors=256

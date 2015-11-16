@@ -1,0 +1,1 @@
+{'class', 'SharedDataImpl', 'constructor', 'this', '_dataMap', '_listeners', 'createListenersForId', 'typeof', 'undefined', 'subscribe', 'indexOf', 'push', 'dispatch', 'length', 'setData', 'data', 'getData', 'return', 'const', 'SharedData', 'export', 'default'}
