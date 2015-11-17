@@ -1,0 +1,24 @@
+require('normalize.css');
+require('styles/App.css');
+import ButtonComponent from './ButtonComponent';
+import React from 'react';
+import from './material-ui/'
+
+let yeomanImage = require('../images/yeoman.png');
+
+class AppComponent extends React.Component {
+    render() {
+        return (
+            <div className="index">
+
+
+                <ButtonComponent />
+            </div>
+        );
+    }
+}
+
+AppComponent.defaultProps = {
+};
+
+export default AppComponent;

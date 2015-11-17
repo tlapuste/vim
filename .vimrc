@@ -6,8 +6,10 @@ inoremap jj <ESC>
 
 " move to next buffer
 nmap <leader>bk :bnext<CR>
+nmap <C-Tab> :bnext<CR>
 "move to previous buffer
 nmap <leader>bj :bprevious<CR>
+nmap <C-shift><Tab> :bprevious<CR>
 "close current buffer and move to previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
 "show all open buffers and their status
@@ -250,6 +252,12 @@ nmap <leader>} :SCViewResult<cr>
 "tern for vim
 let g:tern_map_keys=1
 
+"vim-colorscheme-switcher
+let g:colorscheme_switcher_keep_background=1
+let g:colorscheme_switcher_exclude = ['default', 'test']
+let g:colorscheme_switcher_define_mappings=0
+let g:colorscheme_switcher_exclude_builtins=1
+command C RandomColorScheme
 
 "######## FUNCTIONALITY SETTINGS #########""
 
@@ -269,7 +277,7 @@ set numberwidth=5
 " Zenburn
 set t_Co=256
 set background=dark
-colorscheme tomorrow-night
+colorscheme tomorrow-night-eighties
 " colorscheme zenburn
 
 "Solarized
@@ -287,11 +295,11 @@ set hlsearch
 "forEach non-unix EOL, CR shows as ^M
 set fileformats=unix
 
-"set 4 character indentation and tabbing
+"set 2 character indentation and tabbing
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set showtabline=2
 set autoindent

@@ -106,3 +106,9 @@
 [submodule "bundle/vim-colorschemes"]
 	path = bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/vim-colorscheme-switcher"]
+	path = bundle/vim-colorscheme-switcher
+	url = https://github.com/xolox/vim-colorscheme-switcher.git
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git

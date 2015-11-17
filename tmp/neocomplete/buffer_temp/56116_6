@@ -1,0 +1,26 @@
+'use strict';
+
+import React from 'react';
+import RaisedButton from 'material-ui/lib/raised-button';
+
+require('styles//Button.css');
+
+class ButtonComponent extends React.Component {
+  render() {
+    return (
+        <div className="button-component">
+            
+            <RaisedButton label="Button" />
+            
+        </div>
+    );
+  }
+}
+
+ButtonComponent.displayName = 'ButtonComponent';
+
+// Uncomment properties you need
+// ButtonComponent.propTypes = {};
+// ButtonComponent.defaultProps = {};
+
+export default ButtonComponent;

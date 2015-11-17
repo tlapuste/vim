@@ -1,0 +1,1 @@
+{'eslint', 'console', 'webpack', 'require', 'WebpackDevServer', 'server', 'config', 'open', 'devServer', 'listen', 'port', 'localhost', 'function', 'Listening', 'Opening', 'your', 'system', 'browser', 'http'}

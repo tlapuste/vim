@@ -1,0 +1,1 @@
+{'strict', 'import', 'React', 'from', 'react', 'RaisedButton', 'material', 'raised', 'button', 'require', 'styles', 'Button', 'class', 'ButtonComponent', 'extends', 'Component', 'render', 'return', 'className', 'component', 'label', 'displayName', 'Uncomment', 'properties', 'need', 'propTypes', 'defaultProps', 'export', 'default'}
