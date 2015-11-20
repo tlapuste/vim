@@ -1,0 +1,115 @@
+// Check for modern HTML5 capable browsers and choose jQuery version appropriately
+var pathToJQuery;
+if ("querySelector" in document && "localStorage" in window && "addEventListener" in window) {
+  pathToJQuery = "/vendor/jquery-latest";
+} else {
+  pathToJQuery = "/vendor/jquery-legacy";
+}
+
+// Fetch the version number from the script tag (revisioned by Grunt during the build)
+// We don't have access to the config file yet so need to fetch this manually (we want the "v=x.x.x" portion)
+var versionNumber = document.getElementById(mainjs).getAttribute("data-main").split("main.js?")[1];
+
+function debugLog(msg) {
+  if (console) {
+    console.log(msg);
+  } else {
+    // No console, fake it via a background throw.
+    setTimeout(function () {throw "log: " + msg});
+  }
+}
+
+require.config({
+  urlArgs: versionNumber, // Cache breaker; appends the version number to all requested file paths as query param
+  baseUrl: "/",
+  paths: {
+    "crackle-lib": "js/crackle-lib",
+    "crackle": "/js/crackle",
+    "components": "/components",
+    "pages": "/pages",
+    "es6-promise": "/vendor/es6-promise",
+    "knockout": "/vendor/knockout",
+    "text": "/vendor/text",
+    "jquery": pathToJQuery,
+    "jquery-cycle2": "/vendor/jquery-cycle2",
+    "sammy": "/vendor/sammy",
+    "sha1": "/vendor/caligatio_sha1",
+    "swfobject": "/vendor/swfobject",
+    "spin": "/vendor/spin",
+    "uuid": "/vendor/uuid",
+    "recaptcha": "//www.google.com/recaptcha/api",
+    "optimizely": "//cdn.optimizely.com/js/284669517",
+    "jquery-dotdotdot": "/vendor/jquery.dotdotdot",
+    "xdomain": "/vendor/xdomain",
+    "jquery-placeholder": "/vendor/jquery-placeholder",
+    "loggly": "//cloudfront.loggly.com/js/loggly.tracker"
+  },
+  shim: {
+    "loggly": {
+      deps: [],
+      exports: "_LTracker"
+    },
+    "swfobject": {
+      deps: [],
+      exports: "swfobject"
+    },
+    "recaptcha": {
+      exports: "grecaptcha"
+    },
+    "jquery": {
+      deps: [],
+      exports: "$"
+    },
+    "jquery-cycle2": {
+      deps: ["jquery"]
+    },
+    "jquery-dotdotdot": {
+      deps: ["jquery"]
+    },
+    "jquery-placeholder": {
+      deps: ["jquery"]
+    }
+  }
+});
+
+function ieVersion() {
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
+  var version = 0;
+  if (msie > 0) {
+    // Return the version number of IE <= 10
+    version = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+  }
+  //debugLog("IE: version: " + version + " ua: " + ua);
+  return version;
+}
+
+function hasMinimumBrowserFeatures() {
+  return "querySelector" in document &&
+    "localStorage" in window &&
+    "addEventListener" in window &&
+    "onhashchange" in window &&
+    "withCredentials" in new XMLHttpRequest();  //XHR2 support
+}
+
+// Supported browsers are IE8+ and Safari/Firefox/Chrome latest 2 versions
+var isSupportedBrowser = hasMinimumBrowserFeatures() || ieVersion() >= 8;
+
+// If browser isn't supported then display a special block of content prompting user to upgrade
+if (!isSupportedBrowser) {
+  document.getElementById("unsupportedCopyright").innerHTML = "&copy; Crackle, Inc. " + new Date().getFullYear();
+  document.getElementById("unsupported").style.display = "block";
+}
+else {
+  if ("withCredentials" in new XMLHttpRequest()) {
+    // We have XHR2 support. Put in a placeholder module for xdomain to prevent the XHR facade.
+    define("xdomain", [], function() {});
+  }
+  require(["crackle-lib"], function() { // Ensure crackle-lib is loaded entirely first.
+    require(["crackle/polyfill"], function() { // Ensure polyfill is applied
+      require(["crackle/initApp"], function(initApp) {
+        initApp();
+      });
+    });
+  });
+}

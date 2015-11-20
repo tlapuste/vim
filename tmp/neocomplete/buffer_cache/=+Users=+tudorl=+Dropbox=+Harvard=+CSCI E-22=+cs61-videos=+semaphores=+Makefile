@@ -1,0 +1,1 @@
+{'PROGRAMS', 'pingpong2-sem', 'pingpong2-sem-soln', 'INCLUDES', 'CFLAGS', '-Wall', 'pingpong2-sem-soln.o', 'semaphores-soln.o', '-lpthread', 'pingpong2-sem.o', 'semaphores.o', 'clean', 'core', 'a.out'}

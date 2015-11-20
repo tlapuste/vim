@@ -259,6 +259,10 @@ let g:colorscheme_switcher_define_mappings=0
 let g:colorscheme_switcher_exclude_builtins=1
 command C RandomColorScheme
 
+"EasyMotion JK motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 "######## FUNCTIONALITY SETTINGS #########""
 
 
