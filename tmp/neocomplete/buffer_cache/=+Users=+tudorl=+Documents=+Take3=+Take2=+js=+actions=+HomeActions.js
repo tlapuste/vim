@@ -1,1 +1,1 @@
-{'import', 'TITLE_CHANGED', 'from', 'constants', 'ActionTypes', 'export', 'function', 'changeTitle', 'text', 'return', 'type'}
+{'import', 'TITLE_CHANGED', 'from', 'constants', 'actiontypes', 'DATA_FETCHED', 'TODO', 'camelCase', 'references', 'dependencies', 'export', 'function', 'changeTitle', 'text', 'return', 'type', 'refreshData', 'Make', 'asynchronous', 'call', 'fetch', 'data', 'endpoint'}

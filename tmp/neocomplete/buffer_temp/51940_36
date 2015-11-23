@@ -1,0 +1,48 @@
+var webpack = require('webpack');
+
+module.exports = function (config) {
+  config.set({
+    browsers: ['Chrome'],
+    singleRun: true,        // just run once by default
+    frameworks: ['mocha'],  // use mocha
+    files: ['tests.webpack.js'],
+    preprocessors: {
+      'tests.webpack.js': ['webpack', 'sourcemap'], //preprocess with webpack and sourcemap loader
+    },
+    reporters: ['dots'], // report results in this format
+    webpack: { //kind of a copy of webpack config
+      devtool: 'inline-source-map', //inline source maps as opposed to the default
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel-loader'  }
+        ]
+      }
+    },
+    webpackServer: {
+      stats: {
+        colors: true
+      },
+      noInfo: true // don't spam console when running karma
+    },
+		exclude: [],
+    port: 8080,
+    logLevel: config.LOG_INFO,
+    colors: true,
+    autoWatch: false,
+    // Start these browsers, currently available:
+    // - Chrome
+    // - ChromeCanary
+    // - Firefox
+    // - Opera
+    // - Safari (only Mac)
+    // - PhantomJS
+    // - IE (only Windows)
+    browsers: ['PhantomJS'],
+    captureTimeout: 60000,
+  });
+};
+
+
+
+    
+    

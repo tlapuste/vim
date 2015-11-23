@@ -6,10 +6,8 @@ inoremap jj <ESC>
 
 " move to next buffer
 nmap <leader>bk :bnext<CR>
-nmap <C-Tab> :bnext<CR>
 "move to previous buffer
 nmap <leader>bj :bprevious<CR>
-nmap <C-shift><Tab> :bprevious<CR>
 "close current buffer and move to previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
 "show all open buffers and their status
