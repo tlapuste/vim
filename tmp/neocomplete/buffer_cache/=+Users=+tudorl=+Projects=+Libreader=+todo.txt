@@ -1,1 +1,0 @@
-{'Process', 'minimum', 'amount', 'images', 'words', 'dictionary', 'Compare', 'uses', 'something', 'fast', 'running', 'text', 'parser', 'lexical', 'meaning', 'from', 'corpus', 'Render', 'nouns', 'Check', 'each', 'word', 'against', 'keep', 'list', 'exists', 'noun', 'main', 'Image'}

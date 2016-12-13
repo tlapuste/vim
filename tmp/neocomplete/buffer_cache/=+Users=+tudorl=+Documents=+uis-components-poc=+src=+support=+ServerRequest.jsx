@@ -1,1 +1,0 @@
-{'class', 'ServerRequest', 'constructor', 'requestUrl', 'this', '_url', 'send', 'promise', 'Promise', 'function', 'resolve', 'reject', 'request', 'XMLHttpRequest', 'open', 'onload', 'status', 'response', 'else', 'statusText', 'onerror', 'return', 'export', 'default'}

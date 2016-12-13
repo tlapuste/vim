@@ -1,1 +1,0 @@
-{'ListIterator', 'java', 'Computer', 'Science', 'Harvard', 'University', 'interface', 'iterator', 'that', 'iterates', 'over', 'List', 'public', 'does', 'have', 'additional', 'items', 'visit', 'boolean', 'hasNext', 'return', 'reference', 'next', 'Object', 'iteration'}

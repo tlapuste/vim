@@ -1,0 +1,1 @@
+{'AppDelegate', 'ScanExample', 'Copyright', 'PayPal', 'rights', 'reserved', '#import', 'UIKit', '@interface', 'UIResponder', 'UIApplicationDelegate', '@property', 'strong', 'nonatomic', 'UIWindow', 'window', '@end'}

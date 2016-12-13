@@ -1,0 +1,1 @@
+{'AppDelegate', 'ScanExample', 'Copyright', 'PayPal', 'rights', 'reserved', '#import', '@implementation', 'BOOL', 'application', 'UIApplication', 'didFinishLaunchingWithOptions', 'NSDictionary', 'launchOptions', 'Override', 'point', 'customization', 'after', 'launch', 'return', '@end'}
